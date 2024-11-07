@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "LeetCode Code Reader",
+    "version": "1.0",
+    "description": "Reads the code from LeetCode and shows its length.",
+    "permissions": ["scripting", "activeTab", "clipboardRead"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://leetcode.com/problems/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+}
